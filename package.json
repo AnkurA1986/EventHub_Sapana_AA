@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "playwright test",
-    "test:login": "playwright test tests/1_Login.spec.js"
+    "test:login": "playwright test tests/1_Login.spec.js",
+    "test:allure": "playwright test",
+    "allure:report": "allure generate allure-results -o allure-report --clean",
+    "allure:open": "allure open allure-report"
   },
   "repository": {
     "type": "git",
@@ -21,6 +24,8 @@
   "homepage": "https://github.com/sapanaawasthi/EventHub_PlaywrightSA#readme",
   "devDependencies": {
     "@playwright/test": "^1.63.0",
-    "@types/node": "^26.6.2"
+    "@types/node": "^26.6.2",
+    "allure-commandline": "^2.46.1",
+    "allure-playwright": "^3.13.0"
   }
 }

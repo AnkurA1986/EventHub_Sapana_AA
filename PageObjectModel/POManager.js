@@ -5,6 +5,7 @@ const { EventsPage } = require('./EventsPage');
 const { EventDetailsPage } = require('./EventDetailsPage');
 const { BookingsPage } = require('./BookingsPage');
 const { ManageEventsPage } = require('./ManageEventsPage');
+const { FooterPage } = require('./FooterPage');
 
 class POManager {
   constructor(page) {
@@ -16,6 +17,7 @@ class POManager {
     this.eventDetailsPage = new EventDetailsPage(this.page);
     this.bookingsPage = new BookingsPage(this.page);
     this.manageEventsPage = new ManageEventsPage(this.page);
+    this.footerPage = new FooterPage(this.page);
   }
 
   getLoginPage() {
@@ -44,6 +46,10 @@ class POManager {
 
   getManageEventsPage() {
     return this.manageEventsPage;
+  }
+
+  getFooterPage() {
+    return this.footerPage;
   }
 }
 
