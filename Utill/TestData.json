@@ -1,0 +1,19 @@
+{
+  "email": "eventhub.framework.364054b5@example.com",
+  "password": "Test@1234",
+  "invalidEmail": "wrong@email.com",
+  "invalidPassword": "Wrong@123",
+  "eventName": "World Tech Summit",
+  "customerName": "Rohan Test",
+  "phone": "+91 9876543210",
+  "newEvent": {
+    "title": "Playwright Workshop Pune",
+    "description": "Automation practice event created from Playwright tests.",
+    "category": "Workshop",
+    "city": "Pune",
+    "venue": "RSA Practice Hall",
+    "dateTime": "2026-12-20T10:30",
+    "price": 499,
+    "totalSeats": 100
+  }
+}
