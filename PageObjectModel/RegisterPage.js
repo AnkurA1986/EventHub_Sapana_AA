@@ -3,6 +3,10 @@ const { expect } = require('@playwright/test');
 class RegisterPage {
   constructor(page) {
     this.page = page;
+    this.expectedHomeHeadingText = 'Discover & Book Amazing Events';
+    this.homePageHeading = page.getByRole('heading', {
+      name: this.expectedHomeHeadingText,
+    });
     this.email = page.locator('#register-email');
     this.password = page.locator('#register-password');
     this.confirmPassword = page.getByPlaceholder('Repeat your password');
@@ -23,8 +27,8 @@ class RegisterPage {
     await this.createAccountButton.click();
     await this.page.waitForURL((url) => !url.pathname.includes('/register'));
     await expect(this.page).toHaveURL('/');
-    await expect(this.page.getByRole('heading', { name: 'Diover & Book Amazing Events' }),
-    ).toBeVisible();
+    await expect(this.homePageHeading).toBeVisible();
+    await expect(this.homePageHeading).toHaveAccessibleName(this.expectedHomeHeadingText);
 
     const registeredUrl = this.page.url();
     console.log(`Successfully registered. Redirected URL: ${registeredUrl}`);

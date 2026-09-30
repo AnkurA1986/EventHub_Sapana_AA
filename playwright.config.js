@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig, devices } from '@playwright/test';
+import { defineConfig } from '@playwright/test';
 
 /**
  * @see https://playwright.dev/docs/test-configuration
@@ -14,19 +14,26 @@ export default defineConfig({
   expect: {
     timeout: 5000,
   },
-  reporter: 'html',
+  reporter: [
+    ['html'],
+    ['allure-playwright', { resultsDir: 'allure-results' }],
+  ],
   use: {
     baseURL: 'https://eventhub.rahulshettyacademy.com',
     actionTimeout: 15 * 1000,
     navigationTimeout: 30 * 1000,
     screenshot: 'only-on-failure',
     trace: 'retain-on-failure',
-    headless : false,
+    headless: false,
+    viewport: null,
+    launchOptions: {
+      args: ['--start-maximized'],
+    },
   },
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: { browserName: 'chromium' },
     },
   ],
 });
