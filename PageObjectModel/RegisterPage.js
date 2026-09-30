@@ -14,6 +14,7 @@ class RegisterPage {
     this.signInLink = page.getByRole('link', { name: 'Sign in' });
     this.emailValidationMessage = page.getByText('Enter a valid email');
     this.passwordValidationMessage = page.getByText('Password does not meet the requirements below');
+    this.existingAccountErrorMessage = page.getByText('Email already registered');
   }
 
   async goTo() {
@@ -35,8 +36,20 @@ class RegisterPage {
     return registeredUrl;
   }
 
+  async attemptRegister(email, password) {
+    await this.email.fill(email);
+    await this.password.fill(password);
+    await this.confirmPassword.fill(password);
+    await this.createAccountButton.click();
+  }
+
   async submitEmptyForm() {
     await this.createAccountButton.click();
+  }
+
+  async verifyExistingAccountError() {
+    await expect(this.existingAccountErrorMessage).toBeVisible();
+    await expect(this.page).toHaveURL(/\/register$/);
   }
 
   async verifyBlankFieldValidationMessages() {
