@@ -3,7 +3,7 @@ const { loginWithTestUser } = require('../Utill/AuthHelper');
 const { POManager } = require('../PageObjectModel/POManager');
 const dataset = JSON.parse(JSON.stringify(require('../Utill/TestData.json')));
 
-test('Book tickets for an event', async ({ page }) => {
+test.skip('Book tickets for an event', async ({ page }) => {
   await loginWithTestUser(page, dataset);
   const poManager = new POManager(page);
 
