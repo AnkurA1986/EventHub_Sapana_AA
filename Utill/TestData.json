@@ -2,7 +2,7 @@
   "email": "eventhub.framework.364054b5@example.com",
   "password": "Test@1234",
   "invalidEmail": "wrong@email.com",
-  "invalidPassword": "Wrong@1234",
+  "invalidPassword": "Wrong@12345",
   "eventName": "World Tech Summit",
   "customerName": "Rohan Test",
   "phone": "+91 9876543210",
